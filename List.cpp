@@ -91,5 +91,19 @@ void List::remove(int k)
 	num_elements--;
 	}
 	
+	int List::get(int k) {
+		if (k < 1 or k > num_elements)//if the location is invalid 
+	    throw out_of_range("List::get(" +to_string(k)+") failed. (valid indices are 1 to "+to_string(num_elements)+")");//throw an "out_of_range" exception
+		Node * iPtr = frontPtr;
+		for (int i =1; i < k-1; i++){
+		iPtr = iPtr->link;
+		return iPtr-> data;
+	}
+	}
+				
+	void List::clear(){
+		while (size()!=0)
+		remove (1);
+		}
 	//Implementations of missing operations
 	
